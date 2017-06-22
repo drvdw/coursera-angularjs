@@ -1,0 +1,13 @@
+body {
+  font-size: 1.2em;
+}
+#toBuy, #alreadyBought {
+  float: left;
+}
+#alreadyBought {
+  margin-left: 40px;
+}
+
+.error {
+  color: red;
+}

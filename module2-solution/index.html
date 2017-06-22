@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='ControllerAsApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Custom Service</title>
+  </head>
+  <body>
+    <h1>Custom Service Through a Factory</h1>
+
+    <!-- LIST #1 - unlimited items -->
+    <div id="toBuy" ng-controller='ToBuyController as toBuy'>
+      <h3>To Buy</h3>
+      <input type="text" ng-model="toBuy.itemName" placeholder="item name">
+      <input type="text" ng-model="toBuy.itemQuantity" placeholder="quantity">
+      <button ng-click="toBuy.addItem();">Add Item</button>
+      <ol>
+        <li ng-repeat="item in toBuy.items">
+           Buy {{ item.quantity }}  {{ item.name }}(s)
+          <button ng-click="toBuy.buyItem($index);">Bought</button>
+        </li>
+      </ol>
+      <div ng-show="toBuy.errorMessage();" class="error">{{ toBuy.errorMessage() }}</div>
+    </div>
+
+
+
+
+    <div id="alreadyBought" ng-controller='AlreadyBoughtController as alreadyBought'>
+      <h3>AlreadyBought items</h3>
+      <ol>
+        <li ng-repeat="item in alreadyBought.items">
+          {{ item.quantity }} {{ item.name }}(s)
+        </li>
+      </ol>
+      <div ng-show="alreadyBought.errorMessage();" class="error">{{ alreadyBought.errorMessage() }}</div>
+    </div>
+
+  </body>
+</html>
